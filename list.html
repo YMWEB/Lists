@@ -1,0 +1,32 @@
+<section>
+		<div id="wrapper">
+			<div id="selectBox">
+			<label>Search</lable>
+				<input class="stusearch" name="student" placeholder="search for students" ng-model="query" autofocus></input>
+				<label>By</label>
+				<select ng-model="stuorder" name="select">
+					<option value="class">class</option>
+					<option value="id">id</option>
+				</select>
+
+				<label>
+					<input type="radio" ng-model="direction"checked>ascending</input>
+				</label>
+				<label>
+					<input type="radio" ng-model="direction" value="reverse">descending</input>
+				
+				</label>
+			</div>
+				<div id="content">
+			<ul ng-repeat="item in students|filter:query |orderBy:stuorder:direction">
+				<li>
+					<a href="#/details/{{students.indexOf(item)}}">
+<span>Name:</span>{{item.name}}
+</a>
+				</li>
+				<li><span>ID:</span>{{item.id}}</li>
+				<li><span>Class:</span>{{item.class}}</li>
+				
+			</ul>
+	</div>
+</section>
